@@ -1,4 +1,4 @@
-import { Locator, Page, TestInfo } from "../fixtures/base.fixtures";
+import { Locator, Page, TestInfo } from "@fixtures/base.fixtures";
 import BasePage from "./base.page";
 
 export default class HomePage extends BasePage {
@@ -61,23 +61,13 @@ export default class HomePage extends BasePage {
     this.mainSection = {
       btnMap: page.locator('[data-testid="mapButton"]'),
       btnPopularServices: page.locator('[data-testid="services__populyarni"]'),
-      btnRuralServices: page.locator(
-        '[data-testid="services__silskogospodarski"]'
-      ),
+      btnRuralServices: page.locator('[data-testid="services__silskogospodarski"]'),
       btnBuildServices: page.locator('[data-testid="services__budivelni"]'),
       btnOtherServices: page.locator('[data-testid="services__inshi"]'),
-      btnPopularSpecialEq: page.locator(
-        '[data-testid="specialEquipment__populyarna"]'
-      ),
-      btnRuralSpecialEq: page.locator(
-        '[data-testid="specialEquipment__silskogospodarska"]'
-      ),
-      btnBuildSpecialEq: page.locator(
-        '[data-testid="specialEquipment__budivelna"]'
-      ),
-      btnOtherSpecialEq: page.locator(
-        '[data-testid="specialEquipment__insha"]'
-      ),
+      btnPopularSpecialEq: page.locator('[data-testid="specialEquipment__populyarna"]'),
+      btnRuralSpecialEq: page.locator('[data-testid="specialEquipment__silskogospodarska"]'),
+      btnBuildSpecialEq: page.locator('[data-testid="specialEquipment__budivelna"]'),
+      btnOtherSpecialEq: page.locator('[data-testid="specialEquipment__insha"]'),
     };
 
     this.footerSection = {
