@@ -23,4 +23,13 @@ export default class BasePage {
   async goto(path = ""): Promise<void> {
     await this.page.goto("/" + path);
   }
+
+  /**
+   * Wait for page to be loaded
+   */
+  async waitForPageLoad(): Promise<void> {
+    await this.page.waitForLoadState("load");
+    await this.page.waitForLoadState("networkidle");
+    await this.page.waitForLoadState("domcontentloaded");
+  }
 }

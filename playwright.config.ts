@@ -27,7 +27,9 @@ export default defineConfig({
     baseURL: "https://stage.rentzila.com.ua",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: "on-first-retry",
+    trace: "retain-on-failure",
+    screenshot: process.env.CI ? "only-on-failure" : "on",
+    video: process.env.CI ? "retain-on-failure" : "on",
   },
 
   /* Configure projects for major browsers */
