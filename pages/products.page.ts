@@ -71,7 +71,7 @@ export default class ProductsPage extends BasePage {
 
     this.productsSection = {
       productFoundMsg: page.getByText('[class*="MapPagination_count"]').nth(0),
-      linkFirstProduct: page.locator('[class*="UnitCard_infoWrapper"]').nth(1),
+      linkFirstProduct: page.locator('[class*="UnitCard_infoWrapper"]').nth(0),
     };
   }
 
