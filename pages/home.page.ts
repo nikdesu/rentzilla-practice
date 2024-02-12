@@ -1,4 +1,4 @@
-import { Locator, Page, TestInfo, expect } from "@fixtures/base.fixtures";
+import { Locator, Page, TestInfo, expect, test } from "@fixtures/base.fixtures";
 import BasePage from "./base.page";
 
 export default class HomePage extends BasePage {
@@ -11,6 +11,16 @@ export default class HomePage extends BasePage {
     btnRequests: Locator;
     btnTenders: Locator;
     btnCreateUnit: Locator;
+  };
+
+  public searchWindow: {
+    searchHistory: Locator;
+    services: Locator;
+    servicesAsphalting: Locator;
+    categories: Locator;
+    categoriesDragLine: Locator;
+    firstRecommendedUnit: Locator;
+    closeBtn: Locator;
   };
 
   public mainSection: {
@@ -66,6 +76,16 @@ export default class HomePage extends BasePage {
     btnLogin: Locator;
   };
 
+  public questionsForm: {
+    formQuestions: Locator;
+    inputName: Locator;
+    inputPhone: Locator;
+    btnOrderCons: Locator;
+    errorMsgEmptyNameField: Locator;
+    errorMsgEmptyPhoneField: Locator;
+    errorMsgInvalidPhone: Locator;
+  };
+
   constructor(page: Page, testInfo: TestInfo) {
     super(page, testInfo);
     this.usePage = page;
@@ -82,6 +102,16 @@ export default class HomePage extends BasePage {
       btnRequests: page.locator('[href="/requests-map/"]').nth(0),
       btnTenders: page.locator('[href="/tenders-map/"]').nth(0),
       btnCreateUnit: page.locator('[class*="Navbar_addAnnouncement"]'),
+    };
+
+    this.searchWindow = {
+      searchHistory: page.getByText("Історія пошуку"),
+      services: page.getByTestId('searchDropdown').getByRole('heading', { name: 'Послуги' }),
+      servicesAsphalting: page.getByTestId('searchDropdown').getByTestId('services').getByText('Асфальтування'),
+      categories: page.getByText("Категорії").nth(0),
+      categoriesDragLine: page.getByText('драглайни'),
+      firstRecommendedUnit: page.locator('[class*="CardInSearchPopup_unit__"]').nth(0),
+      closeBtn: page.getByRole('banner').getByTestId('crossIcon')
     };
 
     this.mainSection = {
@@ -136,6 +166,16 @@ export default class HomePage extends BasePage {
       inputPwd: page.locator("#password"),
       btnLogin: page.getByText("Увійти"),
     };
+
+    this.questionsForm = {
+      formQuestions: page.locator('[class*="ConsultationForm_container"]'),
+      inputName: page.locator('[name="name"]'),
+      inputPhone: page.locator('[type="tel"]'),
+      btnOrderCons: page.locator('[type="submit"]'),
+      errorMsgEmptyNameField: page.locator('//input[@name="name"]/following-sibling::p[@role="alert"]'),
+      errorMsgEmptyPhoneField: page.locator('//input[@id="mobile"]/following-sibling::p[@role="alert"]'),
+      errorMsgInvalidPhone: page.locator('//p[contains(text(), "Телефон не пройшов валідацію")]'),
+    };
   }
 
   async goToHomePage(): Promise<void> {
@@ -143,12 +183,16 @@ export default class HomePage extends BasePage {
   }
 
   async checkIfServicesIsvisible(): Promise<void> {
-    await this.servicesSection.btnPopularServices.scrollIntoViewIfNeeded();
-    await expect(this.servicesSection.btnPopularServices).toBeVisible();
+    await test.step("Scroll down until 'Послуги' is visible", async () => {
+      await this.servicesSection.btnPopularServices.scrollIntoViewIfNeeded();
+      await expect(this.servicesSection.btnPopularServices).toBeVisible();
+    });
   }
 
   async checkIfSpecialEqIsVisible(): Promise<void> {
-    await this.specialEqSection.btnPopularSpecialEq.scrollIntoViewIfNeeded();
-    await expect(this.specialEqSection.btnPopularSpecialEq).toBeVisible();
+    await test.step("Scroll down until 'Спецтехніка' is visible", async () => {
+      await this.specialEqSection.btnPopularSpecialEq.scrollIntoViewIfNeeded();
+      await expect(this.specialEqSection.btnPopularSpecialEq).toBeVisible();
+    });
   }
 }

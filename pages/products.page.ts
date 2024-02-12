@@ -1,4 +1,4 @@
-import { Locator, Page, TestInfo, expect } from "@fixtures/base.fixtures";
+import { Locator, Page, TestInfo, expect, test } from "@fixtures/base.fixtures";
 import BasePage from "./base.page";
 
 export default class ProductsPage extends BasePage {
@@ -27,9 +27,11 @@ export default class ProductsPage extends BasePage {
     checkBoxPlowing: Locator;
     checkBoxLifting: Locator;
     checkBoxTrasportation: Locator;
+    
   };
 
   public productsSection: {
+    productFoundMsg: Locator;
     linkFirstProduct: Locator;
   };
 
@@ -68,18 +70,26 @@ export default class ProductsPage extends BasePage {
     };
 
     this.productsSection = {
-      linkFirstProduct: page.locator('[class*="UnitCard_infoWrapper"]').nth(0),
+      productFoundMsg: page.getByText('[class*="MapPagination_count"]').nth(0),
+      linkFirstProduct: page.locator('[class*="UnitCard_infoWrapper"]').nth(1),
     };
   }
 
   async logoClick(): Promise<void> {
-    await this.page.mouse.wheel(0, -100000000);
-    await this.headerSection.btnLogo.click();
+    await test.step("Click on the logo in the left corner of the page.", async () => {
+      await this.page.mouse.wheel(0, -100000000);
+      await this.headerSection.btnLogo.click();
+    });
   }
 
   async productClick(): Promise<void> {
     await this.productsSection.linkFirstProduct.click();
     await this.waitForPageLoad();
     await expect(this.page).toHaveURL(/unit/);
+  }
+
+  async symbolFillEnterClick(symbol: string): Promise<void> {
+    await this.headerSection.fieldSearch.fill(symbol);
+    await this.headerSection.fieldSearch.press("Enter");
   }
 }
