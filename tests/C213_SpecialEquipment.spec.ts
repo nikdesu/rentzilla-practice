@@ -6,9 +6,7 @@ test("C213: Checking 'Спецтехніка' section on the main page", async (
     await homePage.goToHomePage();
   });
 
-  await test.step("Scroll down until 'Спецтехніка' is visible", async () => {
-    await homePage.checkIfSpecialEqIsVisible();
-  });
+  await homePage.checkIfSpecialEqIsVisible();
 
   await test.step("Click on 'Сівалки'", async () => {
     await homePage.specialEqSection.btnPlanters.click();
@@ -21,13 +19,9 @@ test("C213: Checking 'Спецтехніка' section on the main page", async (
     await expect(chosenProductPage.productCharacteristics.categorySowingComplexes).toBeVisible();
   });
 
-  await test.step("Click on the logo in the left corner of the page.", async () => {
-    await productsPage.logoClick();
-  });
+  await productsPage.logoClick();
 
-  await test.step("Scroll down until 'Спецтехніка' is visible", async () => {
-    await homePage.checkIfSpecialEqIsVisible();
-  });
+  await homePage.checkIfSpecialEqIsVisible();
 
   await test.step("Click on 'Трактори'", async () => {
     await homePage.specialEqSection.btnTractors.click();
@@ -40,13 +34,9 @@ test("C213: Checking 'Спецтехніка' section on the main page", async (
     await expect(chosenProductPage.productCharacteristics.categoryTractors).toBeVisible();
   });
 
-  await test.step("Click on the logo in the left corner of the page.", async () => {
-    await productsPage.logoClick();
-  });
+  await productsPage.logoClick();
 
-  await test.step("Scroll down until 'Спецтехніка' is visible", async () => {
-    await homePage.checkIfSpecialEqIsVisible();
-  });
+  await homePage.checkIfSpecialEqIsVisible();
 
   await test.step("Click on 'Обприскувачі'", async () => {
     await homePage.specialEqSection.btnSprayers.click();
@@ -60,13 +50,9 @@ test("C213: Checking 'Спецтехніка' section on the main page", async (
     await expect(chosenProductPage.productCharacteristics.categorySprayers).toBeVisible();
   });
 
-  await test.step("Click on the logo in the left corner of the page.", async () => {
-    await productsPage.logoClick();
-  });
+  await productsPage.logoClick();
 
-  await test.step("Scroll down until 'Спецтехніка' is visible", async () => {
-    await homePage.checkIfSpecialEqIsVisible();
-  });
+  await homePage.checkIfSpecialEqIsVisible();
 
   await test.step("Click on 'Екскаватори'", async () => {
     await homePage.specialEqSection.btnExcavator.click();
@@ -79,13 +65,9 @@ test("C213: Checking 'Спецтехніка' section on the main page", async (
     await expect(chosenProductPage.productCharacteristics.categoryExcavators).toBeVisible();
   });
 
-  await test.step("Click on the logo in the left corner of the page.", async () => {
-    await productsPage.logoClick();
-  });
+  await productsPage.logoClick();
 
-  await test.step("Scroll down until 'Спецтехніка' is visible", async () => {
-    await homePage.checkIfSpecialEqIsVisible();
-  });
+  await homePage.checkIfSpecialEqIsVisible();
 
   await test.step("Click on 'Навантажувачі'", async () => {
     await homePage.specialEqSection.btnLoaders.click();
@@ -98,13 +80,9 @@ test("C213: Checking 'Спецтехніка' section on the main page", async (
     await expect(chosenProductPage.productCharacteristics.categoryLoaders).toBeVisible();
   });
 
-  await test.step("Click on the logo in the left corner of the page.", async () => {
-    await productsPage.logoClick();
-  });
+  await productsPage.logoClick();
 
-  await test.step("Scroll down until 'Спецтехніка' is visible", async () => {
-    await homePage.checkIfSpecialEqIsVisible();
-  });
+  await homePage.checkIfSpecialEqIsVisible();
 
   await test.step("Click on 'Підйомники'", async () => {
     await homePage.specialEqSection.btnElevators.click();
@@ -118,13 +96,9 @@ test("C213: Checking 'Спецтехніка' section on the main page", async (
     await expect(chosenProductPage.productCharacteristics.categoryElevators).toBeVisible();
   });
 
-  await test.step("Click on the logo in the left corner of the page.", async () => {
-    await productsPage.logoClick();
-  });
+  await productsPage.logoClick();
 
-  await test.step("Scroll down until 'Спецтехніка' is visible", async () => {
-    await homePage.checkIfSpecialEqIsVisible();
-  });
+  await homePage.checkIfSpecialEqIsVisible();
 
   await test.step("Click on 'Комунальні машини'", async () => {
     await homePage.specialEqSection.btnUtilVehicles.click();
