@@ -9,9 +9,6 @@ export default class BasePage {
     this.usePage = page;
   }
 
-  /**
-   * Initialize page and locators
-   */
   set usePage(page: Page) {
     this.page = page;
   }

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "run:test": "npx playwright test tests/.*C214_FooterLinksFunc.spec.ts --headed"
+    "run:all": "env playwright test"
   },
   "keywords": [],
   "author": "",

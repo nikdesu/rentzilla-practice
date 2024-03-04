@@ -1,7 +1,7 @@
 import { test, expect } from "@fixtures/base.fixtures";
-import endpoints from "endpoints";
+import endpoints from "endpoints/endpoints";
 
-test("C530:Verify search input", async ({ page, homePage, productsPage, chosenProductPage }) => {
+test("C530:Verify search input", async ({ page, homePage, productsPage }) => {
   await test.step("Open home page", async () => {
     await homePage.goToHomePage();
   });

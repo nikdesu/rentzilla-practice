@@ -1,5 +1,5 @@
 import { test, expect } from "@fixtures/base.fixtures";
-import endpoints from "endpoints";
+import endpoints from "endpoints/endpoints";
 
 test("C213: Checking 'Спецтехніка' section on the main page", async ({ page, homePage, productsPage, chosenProductPage }) => {
   await test.step("Open home page", async () => {

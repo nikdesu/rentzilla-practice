@@ -1,5 +1,5 @@
 import { test, expect } from "@fixtures/base.fixtures";
-import endpoints from "../endpoints";
+import endpoints from "../endpoints/endpoints";
 
 test("C214: Verify that all elements on the footer are displayed and all links are clickable", async ({ page, homePage }) => {
   await test.step("Open home page", async () => {

@@ -1,7 +1,6 @@
 import { test, expect } from "@fixtures/base.fixtures";
 
-
-test("C214: Verify that all elements on the footer are displayed and all links are clickable", async ({ page, homePage }) => {
+test("C214: Verify 'У Вас залишилися питання?' form", async ({ page, homePage, backcallApi, helperApi }) => {
   await test.step("Open home page", async () => {
     await homePage.goToHomePage();
   });
@@ -44,8 +43,14 @@ test("C214: Verify that all elements on the footer are displayed and all links a
     await expect(homePage.questionsForm.errorMsgInvalidPhone).toBeVisible();
   });
 
-  await test.step("Input the valid phone number into the 'Номер' field:+380506743060", async () => {
+  await test.step("Input the valid phone number into the 'Номер' field: +380506743060", async () => {
     await homePage.questionsForm.inputPhone.fill("+380506743060");
+    await page.on("dialog", (dialog) => dialog.accept());
     await homePage.questionsForm.btnOrderCons.click();
+  });
+
+  await test.step("Verify feedback presency", async () => {
+    await backcallApi.setJwt({ email: process.env.AUTH_EMAIL, password: process.env.AUTH_PASS });
+    await expect(await helperApi.sortBackcalls({ name: "Test", phone: "+380506743060"})).not.toHaveLength(0);
   });
 });
