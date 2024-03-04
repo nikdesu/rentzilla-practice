@@ -14,6 +14,11 @@ export default class ProductsPage extends BasePage {
   };
 
   public filtersSection: {
+    buildingEqFilter: Locator;
+    utilityEqFilter: Locator;
+    ruralEqFilter: Locator;
+    storageEqFilter: Locator;
+    sowingFilter: Locator;
     checkBoxBuilding: Locator;
     checkBoxOther: Locator;
     checkBoxRural: Locator;
@@ -27,7 +32,6 @@ export default class ProductsPage extends BasePage {
     checkBoxPlowing: Locator;
     checkBoxLifting: Locator;
     checkBoxTrasportation: Locator;
-    
   };
 
   public productsSection: {
@@ -54,6 +58,11 @@ export default class ProductsPage extends BasePage {
     };
 
     this.filtersSection = {
+      buildingEqFilter: page.locator('[data-testid="budivelna-tekhnika"]'),
+      utilityEqFilter: page.locator('[data-testid="komunalna-tekhnika"]'),
+      ruralEqFilter: page.locator('[data-testid="silskogospodarska-tekhnika"]'),
+      storageEqFilter: page.locator('[data-testid="skladska-tekhnika"]'),
+      sowingFilter: page.locator('[data-testid="posiv-tekhnichnikh-ta-zernovikh-kultur"]'),
       checkBoxBuilding: page.locator("#serviceCategory-3"),
       checkBoxOther: page.locator("#serviceCategory-4"),
       checkBoxRural: page.locator("#serviceCategory-14"),
