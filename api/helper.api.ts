@@ -15,11 +15,9 @@ export default class HelperApi {
     backcalls = backcalls.filter(
       (backcall) => backcall.created_date.includes(moment().tz("Ukraine/Kyiv").format("YYYY-MM-DDTHH")) && backcall.name === data.name && backcall.phone === data.phone
     );
-    console.log(backcalls)
     const filteredBackcalls: Backcall[] = [];
     for (const backcall of backcalls) {
-      if (Math.abs(moment(backcall.created_date).diff(moment(), "seconds")) <= 60) filteredBackcalls.push(backcall);
-      console.log(backcall)
+      if (Math.abs(moment(backcall.created_date).diff(moment().tz("Ukraine/Kyiv"), "seconds")) <= 60) filteredBackcalls.push(backcall);
     }
     console.log(filteredBackcalls);
 
