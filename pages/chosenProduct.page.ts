@@ -68,7 +68,7 @@ export default class ChosenProductPage extends BasePage {
       categoryTractors: page.getByText("трактори колісні").nth(1),
       categorySprayers: page.getByText("Обприскувачі причіпні").nth(1),
       categoryExcavators: page.getByText("багатоковшові екскаватори").nth(1),
-      categoryLoaders: page.getByText("телескопічні навантажувачі").nth(1),
+      categoryLoaders: page.getByText("телескопічні навантажувачі").nth(0),
       categoryElevators: page.getByText("Підіймачі телескопічні ").nth(1),
       categoryUtilVehicles: page.getByText("інша комунальна техніка").nth(1),
     };

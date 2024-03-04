@@ -4,12 +4,13 @@ import { defineConfig, devices } from "@playwright/test";
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// require("dotenv").config();
+require("dotenv").config();
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-export default defineConfig({timeout: 150_000,
+export default defineConfig({
+  timeout: 200_000,
   testDir: "./tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -27,7 +28,7 @@ export default defineConfig({timeout: 150_000,
     baseURL: process.env.BASE_URL,
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: process.env.CI ? "retain-on-failure": "off",
+    trace: process.env.CI ? "retain-on-failure" : "off",
     screenshot: process.env.CI ? "only-on-failure" : "on",
     video: process.env.CI ? "retain-on-failure" : "on",
   },

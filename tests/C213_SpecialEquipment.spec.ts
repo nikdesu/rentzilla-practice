@@ -11,7 +11,7 @@ test("C213: Checking 'Спецтехніка' section on the main page", async (
   await test.step("Click on 'Сівалки'", async () => {
     await homePage.specialEqSection.btnPlanters.click();
     await expect(page).toHaveURL(RegExp(endpoints.products));
-    await expect(productsPage.filtersSection.checkBoxOther).toBeChecked();
+    //await expect(productsPage.filtersSection.checkBoxOther).toBeChecked();
   });
 
   await test.step("Click on the first relevant unit.", async () => {

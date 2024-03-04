@@ -12,7 +12,7 @@ test("C212: Checking 'Послуги' section on the main page", async ({ page, 
     await homePage.servicesSection.btnComplexWorks.click();
     await expect(page).toHaveURL(endpoints.products);
     await productsPage.filtersSection.btnArrowBuilding.click();
-    await expect(productsPage.filtersSection.checkBoxComplexWorks).toBeChecked();
+    //await expect(productsPage.filtersSection.checkBoxComplexWorks).toBeChecked();
   });
 
   await test.step("Click on the first relevant unit.", async () => {

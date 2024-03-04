@@ -1,6 +1,6 @@
 import { test, expect } from "@fixtures/base.fixtures";
 
-test("C214: Verify 'У Вас залишилися питання?' form", async ({ page, homePage, backcallApi, helperApi }) => {
+test("C226: Verify 'У Вас залишилися питання?' form", async ({ page, homePage, backcallApi, helperApi }) => {
   await test.step("Open home page", async () => {
     await homePage.goToHomePage();
   });
@@ -51,6 +51,6 @@ test("C214: Verify 'У Вас залишилися питання?' form", async
 
   await test.step("Verify feedback presency", async () => {
     await backcallApi.setJwt({ email: process.env.AUTH_EMAIL, password: process.env.AUTH_PASS });
-    await expect(await helperApi.sortBackcalls({ name: "Test", phone: "+380506743060"})).not.toHaveLength(0);
+    await expect(await helperApi.sortBackcalls({ name: "Test", phone: "+380506743060" })).not.toHaveLength(0);
   });
 });
