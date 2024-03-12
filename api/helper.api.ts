@@ -1,7 +1,6 @@
 import BackcallApi from "./backcall.api";
 import { Backcall } from "./interfaces";
-import moment from 'moment-timezone';
-
+import moment from "moment";
 
 export default class HelperApi {
   public backcallApi: BackcallApi;
@@ -13,11 +12,11 @@ export default class HelperApi {
   async sortBackcalls(data: { name: string; phone: string }): Promise<Array<Backcall>> {
     let backcalls = await this.backcallApi.getBackcalls(data);
     backcalls = backcalls.filter(
-      (backcall) => backcall.created_date.includes(moment().utc().add(2, 'hour').format("YYYY-MM-DDTHH")) && backcall.name === data.name && backcall.phone === data.phone
+      (backcall) => backcall.created_date.includes(moment().format("YYYY-MM-DDTHH")) && backcall.name === data.name && backcall.phone === data.phone
     );
     const filteredBackcalls: Backcall[] = [];
     for (const backcall of backcalls) {
-      if (Math.abs(moment(backcall.created_date).diff(moment().utc().add(2, 'hour'), "seconds")) <= 60) filteredBackcalls.push(backcall);
+      if (Math.abs(moment(backcall.created_date).diff(moment(), "seconds")) <= 60) filteredBackcalls.push(backcall);
     }
     console.log(filteredBackcalls);
 
