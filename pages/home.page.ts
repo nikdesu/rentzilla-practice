@@ -4,7 +4,6 @@ import { buildingEqEndpoints } from "endpoints/buildingEq.endpoints";
 import { utilityEqEndpoints } from "endpoints/utilityEq.endpoints";
 import { ruralEqEndpoints } from "endpoints/ruralEq.endpoints";
 import { storageEqEndpoints } from "endpoints/storageEq.endpoints";
-import { homedir } from "os";
 
 export default class HomePage extends BasePage {
   public buildingEquipments: {
