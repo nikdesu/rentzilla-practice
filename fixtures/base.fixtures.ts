@@ -5,6 +5,8 @@ import ProductsPage from "@pages/products.page";
 import ChosenProductPage from "@pages/chosenProduct.page";
 import BackcallApi from "@api/backcall.api";
 import HelperApi from "@api/helper.api";
+import UnitApi from "@api/unit.api";
+import TenderApi from "@api/tender.api";
 
 export const test = base.extend<{
   homePage: HomePage;
@@ -12,6 +14,8 @@ export const test = base.extend<{
   chosenProductPage: ChosenProductPage;
   backcallApi: BackcallApi;
   helperApi: HelperApi;
+  unitApi: UnitApi;
+  tenderApi: TenderApi;
 }>({
   homePage: async ({ page }, use, TestInfo) => {
     await use(new HomePage(page, TestInfo));
@@ -27,6 +31,12 @@ export const test = base.extend<{
   },
   helperApi: async ({ backcallApi }, use) => {
     await use(new HelperApi(backcallApi));
+  },
+  unitApi: async ({ request }, use) => {
+    await use(new UnitApi(request));
+  },
+  tenderApi: async ({ request }, use) => {
+    await use(new TenderApi(request));
   },
 });
 
