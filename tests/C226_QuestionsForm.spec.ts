@@ -1,4 +1,6 @@
 import { test, expect } from "@fixtures/base.fixtures";
+import { faker } from "@faker-js/faker";
+
 
 test("C226: Verify 'У Вас залишилися питання?' form", async ({ page, homePage, backcallApi, helperApi }) => {
   await test.step("Open home page", async () => {
